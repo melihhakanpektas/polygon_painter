@@ -1,6 +1,6 @@
 name: polygon_painter
 description: "A flutter package to draw equilateral polygons on a canvas."
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/melihhakanpektas/polygon_painter
 homepage:
 
