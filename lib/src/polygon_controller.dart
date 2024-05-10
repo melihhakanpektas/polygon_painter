@@ -6,6 +6,8 @@ class PolygonController extends ChangeNotifier {
   double _strokeWidth;
   Color _color;
   double? _radius;
+  PaintingStyle _paintingStyle;
+  StrokeJoin _strokeJoin;
 
   PolygonController({
     int corners = 3,
@@ -13,17 +15,23 @@ class PolygonController extends ChangeNotifier {
     double strokeWidth = 1,
     Color color = Colors.black,
     double? radius,
+    PaintingStyle paintingStyle = PaintingStyle.stroke,
+    StrokeJoin strokeJoin = StrokeJoin.round,
   })  : _corners = corners,
         _startAngle = startAngle,
         _strokeWidth = strokeWidth,
         _color = color,
-        _radius = radius;
+        _radius = radius,
+        _paintingStyle = paintingStyle,
+        _strokeJoin = strokeJoin;
 
   int get corners => _corners;
   double get startAngle => _startAngle;
   double get strokeWidth => _strokeWidth;
   Color get color => _color;
   double? get radius => _radius;
+  PaintingStyle get paintingStyle => _paintingStyle;
+  StrokeJoin get strokeJoin => _strokeJoin;
 
   set corners(int value) {
     _corners = value;
@@ -47,6 +55,16 @@ class PolygonController extends ChangeNotifier {
 
   set radius(double? value) {
     _radius = value;
+    notifyListeners();
+  }
+
+  set paintingStyle(PaintingStyle value) {
+    _paintingStyle = value;
+    notifyListeners();
+  }
+
+  set strokeJoin(StrokeJoin value) {
+    _strokeJoin = value;
     notifyListeners();
   }
 }

@@ -38,7 +38,8 @@ class PolygonPainter extends CustomPainter {
 
     final paint = Paint()
       ..color = controller.color
-      ..style = PaintingStyle.stroke
+      ..style = controller.paintingStyle
+      ..strokeJoin = controller.strokeJoin
       ..strokeWidth = controller.strokeWidth;
 
     canvas.drawPath(path, paint);

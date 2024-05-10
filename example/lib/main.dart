@@ -32,51 +32,69 @@ class _MainAppState extends State<MainApp> {
           body: ListenableBuilder(
               listenable: controller,
               builder: (context, child) {
-                return Column(
-                  children: [
-                    Center(
-                      child: SizedBox(
-                        height: 300,
-                        width: 300,
-                        child: CustomPaint(
-                          painter: PolygonPainter(
-                            controller: controller,
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Center(
+                        child: SizedBox(
+                          height: 300,
+                          width: 300,
+                          child: CustomPaint(
+                            painter: PolygonPainter(
+                              controller: controller,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Slider(
-                      min: 0,
-                      max: pi * 2,
-                      value: controller.startAngle,
-                      onChanged: (value) {
-                        controller.startAngle = value;
-                      },
-                    ),
-                    Slider(
-                      min: 1,
-                      max: 50,
-                      value: controller.strokeWidth,
-                      onChanged: (value) {
-                        controller.strokeWidth = value;
-                      },
-                    ),
-                    Slider(
-                      min: 2,
-                      max: 50,
-                      value: controller.corners.toDouble(),
-                      onChanged: (value) {
-                        controller.corners = value.toInt();
-                      },
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        controller.color =
-                            Colors.primaries[Random().nextInt(Colors.primaries.length)];
-                      },
-                      child: const Text('Change Color'),
-                    ),
-                  ],
+                      Slider(
+                        min: 0,
+                        max: pi * 2,
+                        value: controller.startAngle,
+                        onChanged: (value) {
+                          controller.startAngle = value;
+                        },
+                      ),
+                      Slider(
+                        min: 1,
+                        max: 50,
+                        value: controller.strokeWidth,
+                        onChanged: (value) {
+                          controller.strokeWidth = value;
+                        },
+                      ),
+                      Slider(
+                        min: 2,
+                        max: 50,
+                        value: controller.corners.toDouble(),
+                        onChanged: (value) {
+                          controller.corners = value.toInt();
+                        },
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          controller.color =
+                              Colors.primaries[Random().nextInt(Colors.primaries.length)];
+                        },
+                        child: const Text('Change Color'),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          controller.paintingStyle =
+                              controller.paintingStyle == PaintingStyle.stroke
+                                  ? PaintingStyle.fill
+                                  : PaintingStyle.stroke;
+                        },
+                        child: const Text('Change Painting Style'),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          controller.strokeJoin =
+                              StrokeJoin.values[Random().nextInt(StrokeJoin.values.length)];
+                        },
+                        child: const Text('Change Stroke Join'),
+                      ),
+                    ],
+                  ),
                 );
               })),
     );
