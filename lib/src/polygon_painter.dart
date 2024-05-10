@@ -12,14 +12,13 @@ class PolygonPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final hypotenuseOfStrokeWidth = cos(pi / controller.corners) * (controller.strokeWidth * 2);
     final radius = (controller.radius ??
             min(
                   size.width,
                   size.height,
                 ) /
                 2) -
-        hypotenuseOfStrokeWidth;
+        controller.strokeWidth / 2;
     final centerOffset = Offset(size.width / 2, size.height / 2);
     final startAngle = controller.startAngle;
     Offset startPoint = Offset(radius * cos(startAngle), radius * sin(startAngle));
