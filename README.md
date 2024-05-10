@@ -1,39 +1,33 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Polygon Painter
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+![Pub Version](https://img.shields.io/pub/v/polygon_painter)
+[![GitHub issues](https://img.shields.io/github/issues/MelihHakanPektas/polygon_painter.svg)](https://github.com/MelihHakanPektas/flutter_midi_pro/issues)
+![GitHub stars](https://img.shields.io/github/stars/melihhakanpektas/polygon_painter?style=social)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+This package provides a `PolygonPainterStateless` class that allows you to draw polygons with a customizable number of corners, start angle, stroke width, color, radius, painting style, and stroke join.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+<img src="https://raw.githubusercontent.com/melihhakanpektas/polygon_painter/master/assets/polygon_painter.gif" width="300">
 
-## Features
+## Getting Started
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To use this package, add `polygon_painter` as a dependency in your `pubspec.yaml` file.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Here is a basic example of how to use the `PolygonPainterStateless` class:
 
 ```dart
-const like = 'sample';
+SizedBox(
+    height: 300,
+    width: 300,
+    child: CustomPaint(
+        painter: PolygonPainter(
+            controller: controller, // PolygonPainterController
+        ),
+    ),
+),
 ```
 
-## Additional information
+## Additional Information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+For more information, check out the [documentation](https://pub.dev/documentation/polygon_painter)
